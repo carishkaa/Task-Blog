@@ -1,4 +1,4 @@
-// import 'reflect-metadata'
+import 'reflect-metadata'
 import { FastifyInstance } from 'fastify'
 import fp from 'fastify-plugin'
 import { DataSource, DataSourceOptions, Repository } from 'typeorm'
