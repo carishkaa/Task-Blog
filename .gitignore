@@ -1,0 +1,10 @@
+.nyc_output/
+.build-cache/
+dist/
+node_modules/
+coverage/
+temp/
+tsconfig.tsbuildinfo
+.env
+
+*.log
