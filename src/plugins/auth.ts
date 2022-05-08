@@ -34,6 +34,7 @@ export const plugin: FastifyPluginAsync = async (app) => {
   app.decorateRequest('currentUser', null)
 
   const checkAuth: preParsingHookHandler = async (req, reply, payload) => {
+    if (!req.routerPath) return payload
     try {
       if (req.rule === Rule.PRIVATE) {
         const decoded = await req.jwtVerify<{ sub: string }>()

@@ -21,8 +21,10 @@ export class Comment {
   @ManyToOne(() => Article, (article) => article.comments)
   article: Article
   
-  // children, parent 
-  // votes, voteIps
+  // TODO children, parent 
+
+  @Column({type: 'int', default: 0})
+  score: number
 
   @CreateDateColumn()
   createdAt: string

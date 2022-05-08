@@ -5,13 +5,18 @@ import {
   articleDtoOut,
   articleParamsDtoIn,
   ArticleParamsDtoIn,
+  articleShortDtoOut,
 } from '~/dto/article'
 
 export const articleController: FastifyPluginAsync = async (app) => {
   app.get(
     '/',
     {
-      schema: { summary: 'List of all articles', tags: ['Article'] },
+      schema: {
+        summary: 'List of all articles',
+        tags: ['Article'],
+        response: { 200: { type: 'array', items: articleShortDtoOut } },
+      },
       onRequest: app.authRule.authorized(),
     },
     async () => {
@@ -49,8 +54,9 @@ export const articleController: FastifyPluginAsync = async (app) => {
       onRequest: app.authRule.authorized(),
     },
     async (req, reply) => {
-      const article = await app.db.articles.findOneBy({
-        id: req.params.articleId,
+      const article = await app.db.articles.findOne({
+        where: { id: req.params.articleId },
+        relations: ['comments'],
       })
       return article || reply.notFound('Article not found')
     }
@@ -64,7 +70,7 @@ export const articleController: FastifyPluginAsync = async (app) => {
         tags: ['Article'],
         body: articleDtoIn,
         params: articleParamsDtoIn,
-        response: { 200: articleDtoOut },
+        response: { 200: articleShortDtoOut },
       },
       onRequest: app.authRule.authorized(),
     },

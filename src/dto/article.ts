@@ -21,11 +21,24 @@ export const articleDtoOut = {
     perex: { type: 'string' },
     content: { type: 'string' },
     comments: { type: 'array' },
-    createdAt: { type: 'string' }
+    createdAt: { type: 'string', format: 'data-time'}
   },
 } as const
 
 export type ArticleDtoOut = FromSchema<typeof articleDtoOut>
+
+export const articleShortDtoOut = {
+  type: 'object',
+  required: [],
+  properties: {
+    id: { type: 'string', format: 'uuid'},
+    title: { type: 'string' },
+    perex: { type: 'string' },
+    createdAt: { type: 'string'}
+  },
+} as const
+
+export type ArticleShortDtoOut = FromSchema<typeof articleShortDtoOut>
 
 export const articleParamsDtoIn = {
   type: 'object',

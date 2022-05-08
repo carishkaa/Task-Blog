@@ -1,14 +1,15 @@
 # Task-Blog
 
+Run the application
 ```bash
-# database 
-docker-compose up -d 
-
 # create .env file
 cp .env.example .env
 
+# database 
+docker-compose up -d 
+
 # run
 npm install
+npm run seed-data
 npm run dev
-
 ```

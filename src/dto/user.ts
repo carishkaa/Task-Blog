@@ -18,6 +18,7 @@ export const userDtoOut = {
   additionalProperties: false,
   properties: {
     id: { type: 'string' },
+    name: { type: 'string' },
     email: { type: 'string' },
   },
 } as const
