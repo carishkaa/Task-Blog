@@ -7,10 +7,6 @@
     "module": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "paths": {
-      "~/*": ["src/*"]
-    },
-    "plugins": [{ "transform": "typescript-transform-paths" }]
   },
   "ts-node": {
     "compilerOptions": {

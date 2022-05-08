@@ -1,8 +1,8 @@
 import { exit } from 'process'
 import { DataSource, DataSourceOptions } from 'typeorm'
-import { Article } from '~/entities/article'
-import { User } from '~/entities/user'
-import { Comment } from '~/entities/comment'
+import { Article } from '../entities/article'
+import { User } from '../entities/user'
+import { Comment } from '../entities/comment'
 import faker from '@faker-js/faker'
 import _ from 'lodash'
 

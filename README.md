@@ -16,3 +16,8 @@ npm run dev
 
 ### Swagger 
 Endpoint: `/documents`
+
+### Test
+```bash
+npm run test
+```

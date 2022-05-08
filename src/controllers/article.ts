@@ -6,7 +6,7 @@ import {
   articleParamsDtoIn,
   ArticleParamsDtoIn,
   articleShortDtoOut,
-} from '~/dto/article'
+} from '../dto/article'
 
 export const articleController: FastifyPluginAsync = async (app) => {
   app.get(
@@ -36,7 +36,7 @@ export const articleController: FastifyPluginAsync = async (app) => {
       },
       onRequest: app.authRule.authorized(),
     },
-    async (req) => {
+    async (req) => {      
       const article = await app.db.articles.save(req.body)
       return article
     }

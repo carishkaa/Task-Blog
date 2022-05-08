@@ -1,6 +1,6 @@
 import { FastifyPluginAsync } from 'fastify'
-import { loginDtoIn, LoginDtoIn, loginDtoOut } from '~/dto/auth'
-import { scryptVerify } from '~/utils/hashers'
+import { loginDtoIn, LoginDtoIn, loginDtoOut } from '../dto/auth'
+import { scryptVerify } from '../utils/hashers'
 
 export const authController: FastifyPluginAsync = async (app) => {
   app.get(

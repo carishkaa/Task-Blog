@@ -5,8 +5,8 @@ import {
   commentDtoOut,
   commentParamsDtoIn,
   CommentParamsDtoIn,
-} from '~/dto/comment'
-import { Comment } from '~/entities/comment'
+} from '../dto/comment'
+import { Comment } from '../entities/comment'
 
 export const commentController: FastifyPluginAsync = async (app) => {
   app.post<{ Body: CommentDtoIn }>(

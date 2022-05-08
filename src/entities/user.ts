@@ -5,7 +5,7 @@ import {
   BeforeInsert,
   BeforeUpdate,
 } from 'typeorm'
-import { scryptHash } from '~/utils/hashers'
+import { scryptHash } from '../utils/hashers'
 
 @Entity()
 export class User {

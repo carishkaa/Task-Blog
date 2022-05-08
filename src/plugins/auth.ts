@@ -4,7 +4,7 @@ import {
   onRequestAsyncHookHandler,
   preParsingHookHandler,
 } from 'fastify'
-import { User } from '~/entities/user'
+import { User } from '../entities/user'
 
 export enum Rule {
   PUBLIC = 1,
@@ -33,13 +33,13 @@ export const plugin: FastifyPluginAsync = async (app) => {
 
   app.decorateRequest('currentUser', null)
 
-  const checkAuth: preParsingHookHandler = async (req, reply, payload) => {
+  const checkAuth: preParsingHookHandler = async (req, reply, payload) => {        
     if (!req.routerPath) return payload
     try {
       if (req.rule === Rule.PRIVATE) {
         const decoded = await req.jwtVerify<{ sub: string }>()
         req.currentUser = await app.db.users.findOneByOrFail({ id: decoded.sub })
-        return payload 
+        return  
       } else if (
         req.rule !== Rule.PUBLIC &&
         !req.routerPath.startsWith('/documentation') // Swagger 

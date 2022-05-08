@@ -2,11 +2,23 @@ version: '3.3'
 
 services:
   postgres-dev:
-      image: postgres
-      environment:
-        POSTGRES_USER: admin
-        POSTGRES_PASSWORD: admin
-        POSTGRES_DB: dev
-      ports:
-        - "5432:5432"
-      restart: unless-stopped
+    container_name: postgres_dev_container
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: dev
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  postgres-test:
+    container_name: postgres_test_container
+    image: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: test
+    ports:
+      - "5433:5432"
+    restart: unless-stopped
