@@ -16,10 +16,12 @@ export const articleDtoOut = {
   type: 'object',
   required: [],
   properties: {
+    id: { type: 'string', format: 'uuid'},
     title: { type: 'string' },
     perex: { type: 'string' },
     content: { type: 'string' },
-    comments: {type: 'array' }
+    comments: { type: 'array' },
+    createdAt: { type: 'string' }
   },
 } as const
 
@@ -29,7 +31,7 @@ export const articleParamsDtoIn = {
   type: 'object',
   required: ['articleId'],
   properties: {
-    articleId: { type: 'string' },
+    articleId: { type: 'string', format: 'uuid' },
   },
 } as const
 

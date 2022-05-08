@@ -77,6 +77,4 @@ app.register(authController)
 app.register(commentController, { prefix: '/comments' })
 app.register(articleController, { prefix: '/articles' })
 
-
-
 export const viteNodeApp = app
