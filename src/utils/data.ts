@@ -33,13 +33,13 @@ async function run() {
   const USER_COUNT = 10
 
   // User data
-  // await Promise.all(_.times(USER_COUNT, async (i) => {
-  //   i % 2 && process.stdout.write('.')
-  //   const user = new User()
-  //   user.email = faker.internet.email(),
-  //   user.password = 'StrongPassword123'
-  //   await db.users.insert(user)
-  // }))
+  await Promise.all(_.times(USER_COUNT, async (i) => {
+    i % 2 && process.stdout.write('.')
+    const user = new User()
+    user.email = faker.internet.email(),
+    user.password = 'StrongPassword123'
+    await db.users.insert(user)
+  }))
 
   await connection.destroy()
 }

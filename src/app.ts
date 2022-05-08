@@ -41,7 +41,7 @@ const app = fastify({
  * Plugins
  */
 app.register(fastifySensible)
-app.register(fastifyJWT, { secret: process.env.SECRET })
+app.register(fastifyJWT, { secret: process.env.SECRET as string })
 app.register(authPlugin)
 app.register(dbPlugin)
 
@@ -77,8 +77,6 @@ app.register(authController)
 app.register(commentController, { prefix: '/comments' })
 app.register(articleController, { prefix: '/articles' })
 
-app.get('/testt', async (r,res) => {
-  return app.db.articles.find()
-})
+
 
 export const viteNodeApp = app

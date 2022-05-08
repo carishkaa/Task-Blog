@@ -5,6 +5,7 @@ import {
   BeforeInsert,
   BeforeUpdate,
 } from 'typeorm'
+import { scryptHash } from '~/utils/hashers'
 
 @Entity()
 export class User {
@@ -12,7 +13,7 @@ export class User {
   @BeforeUpdate()
   async hashPassword() {
     if (this.password) {
-      // TODO hash password
+      this.password = await scryptHash(this.password)
     }
   }
 
