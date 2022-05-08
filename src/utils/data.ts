@@ -31,6 +31,7 @@ async function run() {
   }
 
   const USER_COUNT = 10
+  const ARTICLE_COUNT = 10
 
   // User data
   const user = new User()
@@ -46,6 +47,15 @@ async function run() {
     user.email = faker.internet.email()
     user.password = 'StrongPassword123'
     await db.users.insert(user)
+  }))
+
+  await Promise.all(_.times(ARTICLE_COUNT, async (i) => {
+    i % 2 && process.stdout.write('.')
+    const article = new Article()
+    article.title = `The ${faker.commerce.productAdjective()} ${faker.animal.cat()} with ${faker.commerce.color()} ${faker.company.bsNoun()}`,
+    article.perex = faker.lorem.sentence()
+    article.content = faker.lorem.paragraph()
+    await db.articles.insert(article)
   }))
 
   await connection.destroy()

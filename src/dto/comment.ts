@@ -5,8 +5,9 @@ export const commentDtoIn = {
   type: 'object',
   required: ['articleId', 'content'],
   properties: {
-    articleId: { type: 'string', },
+    articleId: { type: 'string', format: 'uuid'},
     content: { type: 'string' },
+    parentId: { type: 'string', format: 'uuid'}
   },
 } as const
 

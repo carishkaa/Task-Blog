@@ -1,6 +1,6 @@
 # Task-Blog
 
-Run the application
+### Run the application
 ```bash
 # create .env file
 cp .env.example .env
@@ -13,3 +13,6 @@ npm install
 npm run seed-data
 npm run dev
 ```
+
+### Swagger 
+Endpoint: `/documents`
